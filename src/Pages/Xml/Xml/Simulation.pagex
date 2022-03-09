@@ -1,0 +1,42 @@
+<hmipage next_page="" belongs_to_all_areas="1" version="0.1.0" next_object_number="10005" prev_page="" order="1" default_page_scan="1" page_scan_time="250" id="page_2" title="page_2" width="800" access_area="0" template_id="" height="600" color="#ffc0c0c0">
+    <shapes>
+        <shape type="Rectangle">
+            <object object_id="SHAPE_10005" tool_tip="" description="" object_number="10005"/>
+            <box top="0" axis_anchor="0" axis_offset_top="86" angle="0" bottom="159" z_index="5" right="508" left="0" axis_offset_left="36"/>
+            <line line_width="1" color="#ff000000" style="1"/>
+            <fill fill="#64808080"/>
+            <rectangle corner_radius="0" y1="0" x1="0" y2="159" x2="508"/>
+        </shape>
+    </shapes>
+    <labels>
+        <text font_size="14" font_style="0" underline="0" font_weight="50" static_text="DTms_0011_value" strikeout="0" font_family="Sans Serif" align_type="0" color="#ff000000" display_type="3">
+            <display_numeric>
+                <expression><![CDATA[_DTms_0011]]></expression>
+                <format></format>
+            </display_numeric>
+            <object object_id="TEXT_10004" tool_tip="" description="" object_number="10004"/>
+            <box top="0" axis_anchor="4" axis_offset_top="160" angle="0" bottom="0" z_index="4" right="0" left="0" axis_offset_left="330"/>
+        </text>
+        <text font_size="15" font_style="0" underline="0" font_weight="50" static_text="DTms_0011" strikeout="0" font_family="Sans Serif" align_type="1" color="#ff55ff00" display_type="3">
+            <object object_id="TEXT_10003" tool_tip="" description="" object_number="10003"/>
+            <box top="0" axis_anchor="4" axis_offset_top="120" angle="0" bottom="0" z_index="3" right="0" left="0" axis_offset_left="320"/>
+        </text>
+       
+       
+        <text font_size="14" font_style="0" underline="0" font_weight="50" static_text="DTms_0010_value" strikeout="0" font_family="Sans Serif" align_type="0" color="#ff000000" display_type="3">
+            <display_numeric>
+                <expression><![CDATA[_DTms_0010]]></expression>
+                <format>1</format>
+            </display_numeric>
+            <object object_id="TEXT_10002" tool_tip="" description="" object_number="10002"/>
+            <box top="0" axis_anchor="4" axis_offset_top="160" angle="0" bottom="0" z_index="2" right="0" left="0" axis_offset_left="60"/>
+        </text>
+        <text font_size="15" font_style="0" underline="0" font_weight="50" static_text="DTms_0010" strikeout="0" font_family="Sans Serif" align_type="1" color="#ffff00ff" display_type="0">
+            <object object_id="TEXT_10001" tool_tip="" description="" object_number="10001"/>
+            <box top="0" axis_anchor="4" axis_offset_top="120" angle="0" bottom="0" z_index="1" right="0" left="0" axis_offset_left="60"/>
+        </text>
+
+
+
+    </labels>
+</hmipage>

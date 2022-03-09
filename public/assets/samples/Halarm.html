@@ -1,0 +1,137 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div className="card-header">
+			<h3 className="card-title"  style="margin-left: 600px;padding-bottom: 10px;">Historic Alarm</h3>
+			<span> 
+		<a href='/ViewEvents' type="button" class="btn btn-primary" id="left" style="height:30px;width:120px;padding-right: 20px;margin-left: 1220px;" >Back</a> </span>
+		   </div>
+		<input type="date" id="date1">
+		<input type="date" id="date2">
+		<button id="check" >Check</button>
+		<p id="text"></p>
+
+		
+
+
+
+		<table class="table table-stripped">
+        <tbody id="data">
+			<th>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<tr>Date</tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;<tr>Time</tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;<tr>DeviceName</tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;<tr>Tag Name</tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;<tr>Description</tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;<tr>Alm value</tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
+				
+
+
+			</th>
+
+        </tbody>
+		</table>
+		<script>
+
+			  fetch('http://coolaudit.com/api/HISTALARMs/').then(
+            res=>{
+                res.json().then(
+                    data => {
+                        
+		
+                        if(data.length>0){
+                            var temp="";
+                            data.forEach((u) => {
+                                
+                                temp+= u.DESCRIPTION.substring(9,20)+' ' ;
+								
+							})
+							//console.log(temp)
+							
+								
+							
+							
+		
+		
+				document.getElementById("check").onclick=function(){
+					var temp2 = temp.split(" ");
+				debugger;
+							//console.log(temp2)
+							var date_1=document.getElementById("date1").value; //dd-mm-yyyy
+				var date_2=document.getElementById("date2").value; //dd-mm-yyyy
+				D_1 = date_1.split("-");
+				D_2 = date_2.split("-");
+				var d1 = new Date(date_1);
+				d1.setDate(d1.getDate()-1);
+				var n1= d1.getTime();
+				
+			
+				var d2 = new Date(date_2);
+				var n2=d2.getTime();
+				var temp3="";
+							for (var i=0; i<temp2.length;i++){
+								var date_3=temp2[i];
+								//console.log(date_3)
+								
+		
+				D_3 = date_3.split("-");
+				//console.log(D_3)
+				 
+				
+				
+			
+				var d3 = new Date(date_3);
+				var n3=d3.getTime();
+				//console.log(n3)
+				
+				//console.log(n1)
+					
+				
+				
+				if(n3 >= n1 &&  n3 <= n2 ){
+					
+					
+                            
+                                temp3+= "<tr>";
+                                temp3+= "<td>" + data[i].DESCRIPTION.substring(9,20)+"</td>";
+								temp3+= "<td>" + data[i].DESCRIPTION.substring(0,8)+"</td>";
+								temp3+= "<td>" + data[i].DEVICENAME+"</td>";
+								temp3+= "<td>" + data[i].POINTNAME+"</td>";
+								temp3+= "<td>" + data[i].DESCRIPTION.substring(33,77)+"</td>";
+								temp3+= "<td>" + data[i].VALUE+"</td>";
+
+                            
+                          // console.log(temp3);
+						   document.getElementById("data").innerHTML=temp3;	
+						  console.log(temp3);	
+				
+				}
+				else{
+				
+
+				}
+			
+					
+				//onsole.log(n1);
+				//console.log(n2);
+				//console.log(n3);
+				
+			}
+						
+                        }
+						
+					}
+                    }
+					
+                )
+            }
+		)
+		
+		
+		</script>
+	</body>
+</html>
